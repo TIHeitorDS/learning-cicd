@@ -3,24 +3,24 @@ name: Django CI
 on:
   push:
     branches:
-    - main
+      - main
 
   pull_request:
     branches:
       - main
 
-  permissions:
-    contents: read
+permissions:
+  contents: read
 
 jobs:
   test:
     name: Executar testes Django
-
     runs-on: ubuntu-latest
 
     steps:
       - name: Baixar código
         uses: actions/checkout@v4
+
       - name: Configurar Python
         uses: actions/setup-python@v5
         with:
@@ -35,4 +35,4 @@ jobs:
         run: python manage.py check
 
       - name: Executar testes
-        run: python manage.py test      
+        run: python manage.py test
